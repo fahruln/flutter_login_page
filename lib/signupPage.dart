@@ -4,14 +4,20 @@ void main() {
   runApp(SignupPage());
 }
 
-class SignupPage extends StatelessWidget {
+class SignupPage extends StatefulWidget {
   const SignupPage({Key? key}) : super(key: key);
 
+  @override
+  State<SignupPage> createState() => _SignupPageState();
+}
+
+class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.white,
         body: Center(
           child: SingleChildScrollView(
             child: Padding(
@@ -24,74 +30,94 @@ class SignupPage extends StatelessWidget {
                     height: 20,
                   ),
                   Text(
-                    'Create Account,',
+                    'Create a New Account',
                     style: TextStyle(
-                        fontSize: 30,
+                        fontSize: 28,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black),
+                        color: Color(0xff3347c4)),
+                  ),
+                  SizedBox(
+                    height: 15,
                   ),
                   Text(
-                    'Sign up to get started!',
+                    'Create an account so you can manage your personal finances',
                     style: TextStyle(
-                        fontSize: 22,
+                        fontSize: 18,
                         fontWeight: FontWeight.normal,
                         color: Colors.grey),
                   ),
                   SizedBox(
                     height: 60,
                   ),
-                  TextField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(), labelText: 'Fullname'),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Color(0xfff5f6f8),
+                        borderRadius: BorderRadius.circular(10)),
+                    margin: EdgeInsets.only(bottom: 20),
+                    child: TextField(
+                      decoration: InputDecoration(
+                          border:
+                              OutlineInputBorder(borderSide: BorderSide.none),
+                          hintStyle: TextStyle(color: Colors.grey),
+                          hintText: 'Username'),
+                    ),
                   ),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Color(0xfff5f6f8),
+                        borderRadius: BorderRadius.circular(10)),
+                    margin: EdgeInsets.only(bottom: 20),
+                    child: TextField(
+                      decoration: InputDecoration(
+                          border:
+                              OutlineInputBorder(borderSide: BorderSide.none),
+                          hintStyle: TextStyle(color: Colors.grey),
+                          hintText: 'Email'),
+                    ),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Color(0xfff5f6f8),
+                        borderRadius: BorderRadius.circular(10)),
+                    margin: EdgeInsets.only(bottom: 20),
+                    child: TextField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                          border:
+                              OutlineInputBorder(borderSide: BorderSide.none),
+                          hintStyle: TextStyle(color: Colors.grey),
+                          hintText: 'Password'),
+                    ),
+                  ),
+                  CheckboxListTile(
+                      title: Text(
+                          'I agree to the Terms of Service and Privacy Policy'),
+                      value: false,
+                      onChanged: (value) {}),
                   SizedBox(
-                    height: 20,
-                  ),
-                  TextField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(), labelText: 'Email'),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(), labelText: 'Password'),
-                  ),
-                  SizedBox(
-                    height: 60,
+                    height: 50,
                   ),
                   Container(
                       width: double.infinity,
                       height: 55,
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              colors: [
-                                Colors.deepPurple.shade400,
-                                Colors.deepPurple.shade200
-                              ],
-                              begin: FractionalOffset.topLeft,
-                              end: FractionalOffset.bottomRight),
-                          borderRadius: BorderRadius.circular(10)),
                       child: ElevatedButton(
                         style: ButtonStyle(
                             shape: MaterialStateProperty.all(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10))),
                             backgroundColor:
-                                MaterialStateProperty.all(Colors.transparent)),
+                                MaterialStateProperty.all(Color(0xff3347c4))),
                         onPressed: () {},
                         child: Text(
                           'Create Account',
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold),
+                            color: Colors.white,
+                            fontSize: 18,
+                          ),
                         ),
                       )),
                   SizedBox(
-                    height: 60,
+                    height: 40,
                   ),
                   Container(
                     child: Row(
@@ -108,7 +134,7 @@ class SignupPage extends StatelessWidget {
                           child: Text(
                             'Sign In',
                             style: TextStyle(
-                                color: Colors.black,
+                                color: Color(0xff5766ce),
                                 fontWeight: FontWeight.bold),
                           ),
                         )
